@@ -58,4 +58,6 @@
 - (void) setFont:(NSFont *) font boldFont:(NSFont *) bold_font;
 - (void) setDropHandler:(id) drop_handler;
 
+- (void) updateAtBottom:(NSNotification *) notif;
+
 @end

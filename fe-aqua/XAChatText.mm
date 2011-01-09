@@ -31,10 +31,10 @@ extern "C" {
 #include "../common/url.h"
 }
 
-#if 0
-#define DPrint printf
-#else
+#ifdef NDEBUG
 static void DPrint (const char * x, ...) { };
+#else
+#define DPrint printf
 #endif
 
 //////////////////////////////////////////////////////////////////////
@@ -101,6 +101,7 @@ static NSCursor *lr_cursor;
 										    selector:@selector(updateAtBottom:)
 											    name:@"NSViewBoundsDidChangeNotification"
 											  object:[self superview]];
+	[self updateAtBottom:nil];
 }
 
 - (void) dealloc
@@ -459,9 +460,8 @@ static NSCursor *lr_cursor;
 
 - (void) clear_text
 {
-	// FIXME: rough solution to solve initialization with scrollToDocumentEnd 1/3
-	num_lines = 50;
-    [self setString:@"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"];
+    num_lines = 0;
+    [self setString:@""];
 }
 
 - (void) layoutManager:(NSLayoutManager *) aLayoutManager 
@@ -493,7 +493,7 @@ static NSCursor *lr_cursor;
 
 	at_bottom = dmax == cmax;
 
-	DPrint("Update at bottom %d\n", at_bottom);
+	DPrint("Update at bottom: dmax=%f, cmax=%f, at_bottom=%d\n", dmax, cmax, at_bottom);
 }
 
 - (void) viewDidMoveToWindow

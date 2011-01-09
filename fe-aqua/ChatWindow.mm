@@ -532,7 +532,6 @@ static NSImage *empty_image;
     
     [chat_text setSelectedRange:where];
     [chat_text scrollRangeToVisible:where];
-	//[chat_text updateAtBottom];
 }
 
 - (NSWindow *) window
@@ -855,7 +854,7 @@ static NSImage *empty_image;
     [chat_view setDelegate:self];
 
     [self setup_sess_menu];
-    [self clear:0];
+    [self clear];
     [self set_nick];
     [self set_title];
     [self set_nonchannel:false];
@@ -1022,9 +1021,8 @@ static NSImage *empty_image;
     [self set_topic:""];
 }
 
-- (void) clear:(int)lines
+- (void) clear
 {
-    //TODO: implement this
     [chat_text clear_text];
 }
 
@@ -1242,9 +1240,6 @@ static NSImage *empty_image;
                          withString:@".."];
     }
     [chat_view setTabTitle:s];
-    
-    // FIXME: rough solution to solve initialization with scrollToDocumentEnd 2/3
-    [chat_text scrollToEndOfDocument:chat_view];
 }
 
 - (void) set_nonchannel:(bool) state
@@ -1264,9 +1259,6 @@ static NSImage *empty_image;
     [limit_text setEnabled:state];
     [key_text setEnabled:state];
     [topic_text setEditable:state];
-    
-    // FIXME: rough solution to solve initialization with scrollToDocumentEnd 3/3
-    [chat_text scrollToEndOfDocument:chat_view];
 }
 
 - (void) set_nick
@@ -1370,7 +1362,7 @@ static NSImage *empty_image;
 	NSTableColumn *column = [columns objectAtIndex:1];
 	float width = u->nickSize.width;
 	if (width > maxNickWidth) {
-		maxNickWidth = width+0.5; // Leopard fix :) Where this 0.25 come from?
+		maxNickWidth = width+0.5; // Leopard fix :) Where this 0.25 come from?// WEIRDNESS
 		[column setWidth: maxNickWidth];
 	}
 	/* host column */
