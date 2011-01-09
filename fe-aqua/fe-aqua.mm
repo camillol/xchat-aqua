@@ -426,6 +426,8 @@ fe_args (int argc, char *argv[])
 {
 	char buff [128];
 	
+    initPool = [[NSAutoreleasePool alloc] init];
+
     setlocale (LC_ALL, "");
 #ifdef ENABLE_NLS
 	sprintf(buff, "%s/locale", [[[NSBundle mainBundle] resourcePath] UTF8String]);
@@ -452,8 +454,6 @@ fe_args (int argc, char *argv[])
 		}
 		fclose (f);
 	}
-
-    initPool = [[NSAutoreleasePool alloc] init];
 
 	setupAppSupport();
 
