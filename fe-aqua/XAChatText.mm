@@ -77,6 +77,7 @@ static NSCursor *lr_cursor;
     m_event_req_id = NULL;
     shows_sep = true;
     font_width = 10;
+	edit_pending = false;
         
     style = [[NSMutableParagraphStyle alloc] init];
     
@@ -408,6 +409,12 @@ static NSCursor *lr_cursor;
 	[self print_text: const_text stamp: time(NULL)];
 }
 
+- (void) end_editing
+{
+	[[self textStorage] endEditing];
+	edit_pending = false;
+}
+
 - (void) print_text:(const char *) const_text stamp:(time_t)stamp
 {
     NSMutableAttributedString *stg = [self textStorage];    
@@ -417,7 +424,13 @@ static NSCursor *lr_cursor;
     char *last_text = text;
     int len = 0;
 
-	[stg beginEditing];
+	/* coalesce multiple print_text calls into a single update to avoid delay
+	   when loading scrollback. */
+	if (!edit_pending) {
+		[stg beginEditing];
+		[self performSelector:@selector(end_editing) withObject:nil afterDelay:0.01];
+		edit_pending = true;
+	}
 
     // split the text into separate lines
     while  (*text)
@@ -442,8 +455,6 @@ static NSCursor *lr_cursor;
 
     if (len)
         [self print_line:last_text len:len];
-
-	[stg endEditing];
 }
 
 - (void) clear_text

@@ -48,6 +48,7 @@
     float	             font_width;
     bool                  at_bottom;
 	int			          num_lines;
+	bool			   edit_pending;
 }
 
 - (void) print_text:(const char *) text;
