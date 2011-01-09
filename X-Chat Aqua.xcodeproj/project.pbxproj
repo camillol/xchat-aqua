@@ -186,6 +186,9 @@
 		0FE5E0940F480B26000E0F91 /* SGVBoxView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA6810CFB300B001AE9AE /* SGVBoxView.mm */; };
 		0FE5E0950F480B26000E0F91 /* SGView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA6850CFB300B001AE9AE /* SGView.mm */; };
 		0FE5E0980F480B39000E0F91 /* SGBoxView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F8EA6610CFB300B001AE9AE /* SGBoxView.mm */; };
+		131D9CC012D95773008295E4 /* CLTabCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 131D9CBC12D95773008295E4 /* CLTabCell.m */; };
+		131D9CC112D95773008295E4 /* CLTabViewButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 131D9CBD12D95773008295E4 /* CLTabViewButtonCell.m */; };
+		131D9D0312D95B2E008295E4 /* CLclose13.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 131D9D0212D95B2E008295E4 /* CLclose13.tiff */; };
 		2D076D9410E9108200E4A9F1 /* libglib-2.0.0.dylib in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2D076D9210E9105B00E4A9F1 /* libglib-2.0.0.dylib */; };
 		2D076D9510E9108600E4A9F1 /* libglib-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D076D9210E9105B00E4A9F1 /* libglib-2.0.0.dylib */; };
 		2D076DB510E919BE00E4A9F1 /* libiconv.2.dylib in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 2D076DB310E9195000E4A9F1 /* libiconv.2.dylib */; };
@@ -610,6 +613,11 @@
 		0FE5E0450F455A07000E0F91 /* SGVBoxViewInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SGVBoxViewInspector.h; path = "fe-aqua/Palette/SGVBoxViewInspector.h"; sourceTree = "<group>"; };
 		0FE5E0460F455A07000E0F91 /* SGVBoxViewInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SGVBoxViewInspector.m; path = "fe-aqua/Palette/SGVBoxViewInspector.m"; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		131D9CBC12D95773008295E4 /* CLTabCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLTabCell.m; path = "fe-aqua/CLTabCell.m"; sourceTree = "<group>"; };
+		131D9CBD12D95773008295E4 /* CLTabViewButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CLTabViewButtonCell.m; path = "fe-aqua/CLTabViewButtonCell.m"; sourceTree = "<group>"; };
+		131D9CBE12D95773008295E4 /* CLTabCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLTabCell.h; path = "fe-aqua/CLTabCell.h"; sourceTree = "<group>"; };
+		131D9CBF12D95773008295E4 /* CLTabViewButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLTabViewButtonCell.h; path = "fe-aqua/CLTabViewButtonCell.h"; sourceTree = "<group>"; };
+		131D9D0212D95B2E008295E4 /* CLclose13.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = CLclose13.tiff; path = "fe-aqua/CLclose13.tiff"; sourceTree = "<group>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -1735,6 +1743,10 @@
 		0F8EA3CD0CFAF7AF001AE9AE /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				131D9CBC12D95773008295E4 /* CLTabCell.m */,
+				131D9CBD12D95773008295E4 /* CLTabViewButtonCell.m */,
+				131D9CBE12D95773008295E4 /* CLTabCell.h */,
+				131D9CBF12D95773008295E4 /* CLTabViewButtonCell.h */,
 				0F8EA3CE0CFAF7E2001AE9AE /* fe-aqua.mm */,
 				2D7817C810E872D200C71AF8 /* fe-aqua_utility.h */,
 				2D7817C910E872D200C71AF8 /* fe-aqua_utility.mm */,
@@ -2053,6 +2065,7 @@
 		2DEA303D0F87235400D6DC0D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				131D9D0212D95B2E008295E4 /* CLclose13.tiff */,
 				0F8EA7920CFB6CF9001AE9AE /* unlock.tiff */,
 				0F8EA7940CFB6CF9001AE9AE /* warning.tiff */,
 				0F8EA7970CFB6CF9001AE9AE /* xchat.icns */,
@@ -2391,6 +2404,7 @@
 				2DEA2F4B0F8673BF00D6DC0D /* DccSend.xib in Resources */,
 				2D8DA8F70F8E6B2400DA0BC2 /* xchataqua.strings in Resources */,
 				B0E85AC20FFFC0AF0064D049 /* sparkle.pem in Resources */,
+				131D9D0312D95B2E008295E4 /* CLclose13.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2581,6 +2595,8 @@
 				0F2FEFBD0E1FC8E900DE4D41 /* SystemVersion.m in Sources */,
 				2DC4307F105F608B00782AAD /* xalocalization.m in Sources */,
 				2D7817CA10E872D200C71AF8 /* fe-aqua_utility.mm in Sources */,
+				131D9CC012D95773008295E4 /* CLTabCell.m in Sources */,
+				131D9CC112D95773008295E4 /* CLTabViewButtonCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

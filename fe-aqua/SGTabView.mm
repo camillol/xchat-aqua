@@ -21,6 +21,7 @@
 #include <dlfcn.h>
 #import "SG.h"
 #import "SGTabView.h"
+#import "CLTabViewButtonCell.h"
 
 //////////////////////////////////////////////////////////////////////
 
@@ -599,11 +600,20 @@ HIThemeSegmentPosition positionTable[2][2] =
 
 @implementation SGTabViewButton
 
+/* CL: undocumented method used to update the cell when the window is activated/deactivated */
+- (void) _windowChangedKeyState
+{
+	[self updateCell:[self cell]];
+}
+
 - (id) init
 {
     [super init];
     
-    [self setCell:[[[SGTabViewButtonCell alloc] initTextCell:@""] autorelease]];
+    if ([CLTabViewButtonCell available])	/* CL: this cell is theme-compliant, but requires 10.4 */
+		[self setCell:[[[CLTabViewButtonCell alloc] init] autorelease]];
+	else
+		[self setCell:[[[SGTabViewButtonCell alloc] initTextCell:@""] autorelease]];
     [self setButtonType:NSOnOffButton];
     [[self cell] setControlSize:NSSmallControlSize];
     [self setFont:[NSFont systemFontOfSize:[NSFont smallSystemFontSize]]];
